@@ -1,0 +1,37 @@
+montant,date_budget,id_departement,id_type,description
+5000.00,2024-01-05,1,1,Allocation annuelle
+2200.00,2024-01-15,1,3,Achat de matériel de bureau
+1500.00,2024-01-22,1,4,Petits travaux d'entretien
+7500.50,2024-02-03,1,2,Formation en comptabilité
+1800.00,2024-02-14,1,1,Renouvellement de licences logiciels
+3200.00,2024-02-27,1,3,Maintenance des équipements
+6200.00,2024-03-10,1,3,Achat de fournitures de bureau
+4000.00,2024-03-20,1,4,Réparations des locaux
+2500.00,2024-03-28,1,1,Audit financier partiel
+3000.00,2024-04-07,1,4,Entretien des locaux
+2200.00,2024-04-19,1,1,Achat d'outils comptables
+8500.00,2024-05-05,1,1,Acquisition de logiciels financiers
+4200.00,2024-05-18,1,3,Achat de mobilier de bureau
+3300.00,2024-05-25,1,2,Séminaire interne de gestion
+9200.00,2024-06-02,1,2,Séminaire de gestion budgétaire
+2800.00,2024-06-14,1,3,Rénovation des espaces de travail
+5700.00,2024-06-29,1,4,Modernisation des installations
+4000.00,2024-07-08,1,3,Achats d'équipements informatiques
+3300.00,2024-07-17,1,1,Formation en gestion financière
+4200.00,2024-07-29,1,4,Amélioration de la sécurité des bureaux
+6700.00,2024-08-05,1,4,Travaux de rénovation des bureaux
+3100.00,2024-08-18,1,1,Achat de matériel ergonomique
+4500.00,2024-08-26,1,3,Maintenance des serveurs
+11000.00,2024-09-02,1,1,Audit financier externe
+3800.00,2024-09-14,1,2,Conférence internationale
+2600.00,2024-09-28,1,4,Entretien des locaux
+5300.00,2024-10-07,1,2,Formation en gestion des risques
+2700.00,2024-10-15,1,3,Réorganisation des espaces de travail
+4900.00,2024-10-30,1,1,Mise à jour des logiciels de finance
+7800.00,2024-11-08,1,3,Mise à jour des infrastructures IT
+5500.00,2024-11-20,1,4,Rafraîchissement des peintures
+6300.00,2024-11-29,1,1,Équipements de travail
+4900.00,2024-12-06,1,4,Frais de fin d'année
+7200.00,2024-12-17,1,2,Atelier de formation
+5100.00,2024-12-28,1,1,Planification budgétaire
+

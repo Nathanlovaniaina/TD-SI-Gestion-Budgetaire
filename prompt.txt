@@ -1,0 +1,7 @@
+-Categorie: id_cate , nom (ex:recette)
+-Departement : id_departement , nom
+-Nature : id_nature , nom , id_departement
+-Type: id_type , id_cate , Nature , id_nature , libelle
+-budget: id_buget , montant , id_departement , id_type
+
+a joute une table de buget_par_departement qui liste les pourcentages de budget donnee par departement
