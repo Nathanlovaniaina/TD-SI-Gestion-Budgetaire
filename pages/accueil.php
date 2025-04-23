@@ -28,7 +28,7 @@
     </div>
 </div>
     <div class="container mt-4">
-    <form action="traitement/insert_budg.php" method="post">
+    <form id="formBudget" action="traitement/insert_budg.php" method="post">
         <input type="hidden" name="id_departement" value="<?php echo $id_departement; ?>">
         <div>
             Type :
@@ -43,6 +43,13 @@
         <div>Description: <input type="text" name="desc" id=""></div>
         <div><input type="submit" value="Valider"></div>
     </form>
+    <script>
+    document.getElementById('formBudget').addEventListener('submit', function(e) {
+        if (!confirm("Voulez-vous valider la modification ?")) {
+            e.preventDefault();
+        }
+    });
+</script>
     </div>
 </body>
 </html>
