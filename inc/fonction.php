@@ -226,6 +226,88 @@ function getToutesLesCategories() {
 
     return $categories; // Retourner le tableau des noms
 }
+function getToutesLesRequetesBudgetaires() {
+    include("connexion2.php"); // Inclure la connexion
+
+    // Préparer la requête SQL pour récupérer toutes les requêtes budgétaires
+    $sql = "SELECT * FROM RequeteBudgetaire";
+    $result = mysqli_query($bdd, $sql);
+
+    // Vérifier si la requête s'est bien exécutée
+    if (!$result) {
+        die("Erreur de requête : " . mysqli_error($bdd));
+    }
+
+    // Créer un tableau pour stocker les résultats
+    $requetes = array();
+
+    // Récupérer les résultats ligne par ligne
+    while ($row = mysqli_fetch_assoc($result)) {
+        $requetes[] = $row; // Ajouter toute la ligne au tableau
+    }
+
+    // Fermer la connexion
+    mysqli_close($bdd);
+
+    return $requetes; // Retourner le tableau des requêtes
+}
+
+
+function supprimerRequeteBudgetaire($id_requete) {
+    include("connexion2.php"); // Connexion à la base ($bdd)
+
+    // Sécuriser l'ID
+    $id_requete = intval($id_requete);
+
+    $sql = "DELETE FROM RequeteBudgetaire WHERE id_requete = $id_requete";
+    $result = mysqli_query($bdd, $sql);
+
+    if (!$result) {
+        die("Erreur lors de la suppression : " . mysqli_error($bdd));
+    }
+
+    mysqli_close($bdd);
+}
+
+function validerRequeteBudgetaire($id_requete, $id_departement, $id_type, $date_budget, $description) {
+    include("connexion2.php");
+
+    // Nettoyage des entrées (comme avant)
+    $id_requete = intval($id_requete);
+    $id_departement = intval($id_departement);
+    $id_type = intval($id_type);
+    $description = mysqli_real_escape_string($bdd, $description);
+    $date_budget = mysqli_real_escape_string($bdd, $date_budget);
+
+    // 1. Récupérer la valeur de la requête (inchangé)
+    $sql_select = "SELECT valeur FROM RequeteBudgetaire WHERE id_requete = $id_requete";
+    $result = mysqli_query($bdd, $sql_select);
+
+    if (!$result || mysqli_num_rows($result) == 0) {
+        die("Requête introuvable ou erreur lors de la récupération : " . mysqli_error($bdd));
+    }
+
+    $row = mysqli_fetch_assoc($result);
+    $valeur = $row['valeur'];
+
+    // 2. MODIFICATION : Mettre à jour le budget existant au lieu d'insérer
+    $sql_update = "UPDATE Budget 
+                   SET montant = montant + $valeur  /* Ajoute la valeur à l'ancien montant */
+                   WHERE 
+                       id_departement = $id_departement 
+                       AND id_type = $id_type ";
+
+    if (!mysqli_query($bdd, $sql_update)) {
+        die("Erreur lors de la mise à jour du budget : " . mysqli_error($bdd));
+    }
+
+    // 3. Supprimer la requête (inchangé)
+    $sql_delete = "DELETE FROM RequeteBudgetaire WHERE id_requete = $id_requete";
+    mysqli_query($bdd, $sql_delete);
+
+    mysqli_close($bdd);
+}
+
 ?>
 
 

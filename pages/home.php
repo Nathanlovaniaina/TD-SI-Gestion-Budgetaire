@@ -21,6 +21,9 @@
         <ul class="list">
             <li><a href="home.php">Accueil</a></li>
             <li><a href="Nature.php">Insertions</a></li>
+            <?php if($_SESSION['user_id'] == 1) {?>
+                <li><a href="liste_requetteBudgetaire.php">Demande</a></li>
+            <?php }?>
             <li><a href="traitement/logout.php">Quitter</a></li>
         </ul>
     </div>
